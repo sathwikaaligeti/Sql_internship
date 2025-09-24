@@ -23,4 +23,5 @@ How to use
 Files included
 - SQL script (library_schema.sql)
 - ER diagram image (library_er_diagram.png)
+
 - This one

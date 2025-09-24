@@ -1,0 +1,21 @@
+CREATE TABLE Employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    salary INT DEFAULT 5000
+);
+Insert rows
+INSERT INTO Employees (id, name, salary) VALUES
+(1, 'Pinky', 5500),
+(2, 'Dolly', NULL),  -- NULL salary
+(3, 'Happy', 6000);
+ Update Dolly's salary
+UPDATE Employees SET salary = 5800 WHERE name = 'Dolly';
+
+Set Pinky's salary to NULL
+UPDATE Employees SET salary = NULL WHERE name = 'Pinky';
+
+ Delete Happy
+DELETE FROM Employees WHERE name = 'Happy';
+
+ Select all with null handling
+SELECT id, name, COALESCE(salary, 5000) AS salary FROM Employees;

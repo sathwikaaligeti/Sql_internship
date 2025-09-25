@@ -1,0 +1,30 @@
+1. SELECT all columns and rows
+SELECT * FROM Employees;
+
+2. Filter rows example: salary greater than 5000
+SELECT * FROM Employees WHERE salary > 5000;
+
+3. LIKE pattern matching example
+SELECT * FROM Employees WHERE name LIKE '%an%';
+
+4. BETWEEN example: salary range
+SELECT * FROM Employees WHERE salary BETWEEN 5000 AND 7000;
+
+5. LIMIT output rows example
+SELECT * FROM Employees LIMIT 5;
+
+6. '=' and 'IN' comparison
+SELECT * FROM Employees WHERE name = 'Pinky';
+SELECT * FROM Employees WHERE name IN ('Pinky', 'Dolly');
+
+7. ORDER BY descending
+SELECT * FROM Employees ORDER BY salary DESC;
+
+8. Column aliasing
+SELECT name AS EmpName FROM Employees;
+
+9. DISTINCT to get unique values
+SELECT DISTINCT salary FROM Employees;
+
+10. Default sort order example (ascending)
+SELECT * FROM Employees ORDER BY salary;

@@ -1,0 +1,48 @@
+SUM: Total salary
+SELECT SUM(salary) AS total_salary FROM Employees;
+
+COUNT: Total number of employees
+SELECT COUNT(*) AS total_employees FROM Employees;
+
+AVG: Average salary of all employees
+SELECT AVG(salary) AS avg_salary FROM Employees;
+
+GROUP BY: Total salary and average in each department
+SELECT department, SUM(salary) AS dept_total, AVG(salary) AS dept_avg
+FROM Employees
+GROUP BY department;
+
+HAVING: Departments with more than 3 employees
+SELECT department, COUNT(*) AS num_employees
+FROM Employees
+GROUP BY department
+HAVING COUNT(*) > 3;
+
+COUNT DISTINCT: Number of unique job titles
+SELECT COUNT(DISTINCT job_title) AS unique_titles FROM Employees;
+
+ROUND(): Average salary rounded to 2 decimals by department
+SELECT department, ROUND(AVG(salary), 2) AS rounded_avg
+FROM Employees
+GROUP BY department;
+
+MAX: Highest salary by department
+SELECT department, MAX(salary) AS max_salary
+FROM Employees
+GROUP BY department;
+
+Group by multiple columns
+SELECT department, job_title, COUNT(*) AS count
+FROM Employees
+GROUP BY department, job_title;
+
+All aggregates grouped by department
+SELECT
+    department,
+    COUNT(*) AS num_employees,
+    SUM(salary) AS total_salary,
+    AVG(salary) AS avg_salary,
+    MIN(salary) AS min_salary,
+    MAX(salary) AS max_salary
+FROM Employees
+GROUP BY department;

@@ -1,0 +1,23 @@
+Simple subquery: Find employees with salary greater than average
+SELECT name, salary
+FROM Employees
+WHERE salary > (SELECT AVG(salary) FROM Employees);
+
+Correlated subquery: Find customers with orders exceeding 1000
+SELECT c.name
+FROM Customers c
+WHERE EXISTS (
+    SELECT 1 FROM Orders o WHERE o.customer_id = c.customer_id AND o.amount > 1000
+);
+
+Subquery in FROM clause (derived table)
+SELECT dept, AVG(salary) AS avg_salary
+FROM (
+    SELECT department AS dept, salary FROM Employees
+) AS dept_salaries
+GROUP BY dept;
+
+Subquery using IN
+SELECT name FROM Employees WHERE department IN (
+    SELECT department FROM Departments WHERE location = 'New York'
+);

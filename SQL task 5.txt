@@ -1,0 +1,32 @@
+Create example tables
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    amount DECIMAL(10,2),
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
+);
+
+INNER JOIN: Customers who have orders
+SELECT Customers.name, Orders.amount
+FROM Customers
+INNER JOIN Orders ON Customers.customer_id = Orders.customer_id;
+
+LEFT JOIN: All customers, with orders if any
+SELECT Customers.name, Orders.amount
+FROM Customers
+LEFT JOIN Orders ON Customers.customer_id = Orders.customer_id;
+
+RIGHT JOIN: All orders, with customer information if any
+SELECT Customers.name, Orders.amount
+FROM Customers
+RIGHT JOIN Orders ON Customers.customer_id = Orders.customer_id;
+
+FULL OUTER JOIN: All customers and orders, matched if possible
+SELECT Customers.name, Orders.amount
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.customer_id = Orders.customer_id;
